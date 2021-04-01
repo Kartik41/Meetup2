@@ -1,0 +1,67 @@
+<%= form_with(model: friend) do |form| %>
+  <% if friend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+      <ul>
+        <% friend.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label"><%= form.label :first_name %></label>
+  <div class="col-sm-10"><%= form.text_field :first_name %>
+  </div>
+  </div>
+
+  <div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label"> <%= form.label :last_name %></label>
+    <div class="col-sm-10"> <%= form.text_field :last_name %>
+    </div>
+    </div>
+
+  <div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label"> <%= form.label :email %></label>
+    <div class="col-sm-10"> <%= form.text_field :email %>
+    </div>
+    </div>
+
+  <div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label"> <%= form.label :phone %></label>
+    <div class="col-sm-10"><%= form.text_field :phone %>
+    </div>
+    </div>
+
+  <div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label"><%= form.label :twitter %></label>
+    <div class="col-sm-10"><%= form.text_field :twitter %>
+    </div>
+    </div>
+    <div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label"><%= form.label :Image %></label>
+    <div class="col-sm-10"><%= form.file_field :image %>
+    </div>
+   </div>
+   <div class="row mb-3">
+      <h3>Add Favourite Books</h3>
+      <%= form.fields_for :books do|book| %>
+        <%= render 'book_fields', form: book %>
+      <% end %>
+      <div class="links">
+      <%= link_to_add_association "Add Book", form, :books %>
+      </div>
+      </div>
+   
+    <div class="row mb-3">
+    <div class="col-sm-10"><%= form.number_field :user_id,id: :friend_user_id, value: current_user.id,type: :hidden %>
+    </div>
+    </div>
+
+  <div class="actions">
+  
+    <%= form.submit class:'btn btn-primary' %>
+  </div>
+<% end %>

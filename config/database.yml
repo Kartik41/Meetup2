@@ -12,7 +12,9 @@ default: &default
 development:
   <<: *default
   #database: db/development.sqlite3
-  database: flatiron_mod3_development
+  database: my_app_development
+  username: postgres
+  password: '12345678'
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -20,9 +22,13 @@ development:
 test:
   <<: *default
   #database: db/test.sqlite3
-  database: flatiron_mod3_test
+  database: my_app_test
+  username: postgres
+  password: '12345678'
 
 production:
   <<: *default
   #database: db/production.sqlite3
-   database: flatiron_mod3_production
+  database: my_app_production
+  username: postgres
+  password: '12345678'

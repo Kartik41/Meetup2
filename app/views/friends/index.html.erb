@@ -40,7 +40,6 @@
 
 <%= link_to 'New Friend', new_friend_path,class: "btn btn-primary" %>
 <button>Click</button>
-<%= will_paginate @friends, :renderer => BootstrapPagination::Rails %>
-<script>
+</br>
 
-    </script>
+<%= will_paginate(@friends, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination-sm') %>

@@ -48,7 +48,7 @@
    <div class="row mb-3">
       <h3>Add Favourite Books</h3>
       <%= form.fields_for :books do|book| %>
-        <%= render 'book_fields', form: book %>
+        <%= render 'book_fields', f: book %>
       <% end %>
       <div class="links">
       <%= link_to_add_association "Add Book", form, :books %>

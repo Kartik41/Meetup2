@@ -18,7 +18,9 @@ class FriendsController < ApplicationController
         pdf = FriendPdf.new(@friends)
         send_data pdf.render
       end
+      format.json { render json: @friends}
     end  
+
   end
 
 

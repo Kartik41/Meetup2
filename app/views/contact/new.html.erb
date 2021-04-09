@@ -1,0 +1,11 @@
+<%= flash[:thanks] %>
+<%= form_with url: '/contact' do |f| %>
+    <h2>Have a Question, Request, or an issue? Contact us!</h2>
+    <p>
+    <%= f.text_area :message %>
+    </p>
+
+    <p>
+    <%= f.submit %>
+    </p>
+    <% end %>
